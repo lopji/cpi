@@ -1,0 +1,41 @@
+
+
+<div class="flex-container" fxLayout="column">
+	<button (click)="home()" fxFlexAlign="center" class="logo-container">
+		<div class="logo"></div>
+	</button>
+	<div fxLayout="row" fxLayoutAlign="center" class="card-container">
+		<div fxFlex="90%" fxFlex.md="50%" fxFlex.lg="40%">
+			<mat-card> 
+				<mat-card-title>{{ (user | async).email }} </mat-card-title> 
+				<mat-card-content> 
+					
+				    <mat-form-field floatPlaceholder="never">
+     					<input matInput #filter placeholder="Filtrer par nom">
+   					</mat-form-field>
+				
+					<mat-table #table [dataSource]="dataSource" matSort> 
+					
+					   	<ng-container matColumnDef="name">
+					      <mat-header-cell *matHeaderCellDef mat-sort-header> Nom </mat-header-cell>
+					      <mat-cell *matCellDef="let book"> {{book.name}} </mat-cell>
+					    </ng-container>
+					
+					    <!-- Weight Column -->
+					    <ng-container matColumnDef="year">
+					      <mat-header-cell *matHeaderCellDef mat-sort-header> Ann&eacute;e </mat-header-cell>
+					      <mat-cell *matCellDef="let book"> {{book.year}} </mat-cell>
+					    </ng-container>
+	    
+						<mat-header-row *matHeaderRowDef="columnsBooks"></mat-header-row>
+						<mat-row *matRowDef="let rows columns: columnsBooks"></mat-row>
+					</mat-table>
+					
+					<div fxLayout="column">
+						<a mat-button (click)="signOut()">D&eacute;connexion</a>
+					</div>
+				</mat-card-content> 
+			</mat-card>
+		</div>
+	</div>
+</div>

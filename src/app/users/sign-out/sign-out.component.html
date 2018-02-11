@@ -1,0 +1,18 @@
+<div class="flex-container" fxLayout="column">
+  <button (click)="home()" fxFlexAlign="center" class="logo-container">
+    <div class="logo"></div>
+  </button>
+  <div fxLayout="row" fxLayoutAlign="center" class="card-container">
+    <div fxFlex="90%" fxFlex.md="50%" fxFlex.lg="40%">
+      <mat-card>
+        <mat-card-title>D&eacute;connexion</mat-card-title>
+        <mat-card-content>
+          <div fxLayout="column">
+            <p>Vous avez &eacute;t&eacute; d&eacute;connect&eacute; avec succ&egrave;s.</p>
+            <a mat-button (click)="signIn()">Connexion</a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
